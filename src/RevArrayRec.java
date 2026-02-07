@@ -1,19 +1,13 @@
 public class RevArrayRec {
 
-    static void reverse(int[] arr, int start, int end) {
-
-        // base case
-        if (start >= end) {
+    static void reverse(int[] arr, int i, int j) {
+        if (i >= j) {
             return;
         }
-
-        // swap
-        int temp = arr[start];
-        arr[start] = arr[end];
-        arr[end] = temp;
-
-        // recursive call
-        reverse(arr, start + 1, end - 1);
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        reverse(arr, i + 1, j - 1);
     }
 
     public static void main(String[] args) {
@@ -22,7 +16,6 @@ public class RevArrayRec {
 
         reverse(arr, 0, arr.length - 1);
 
-        // print array
         for (int x : arr) {
             System.out.print(x + " ");
         }
